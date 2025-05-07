@@ -4,7 +4,6 @@
 
 import meow from 'meow'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import { rollup, watch as rollupWatch } from 'rollup'
 import { RollupConfigFactory } from '../lib/rollup/configFactory.mjs'
 
@@ -15,8 +14,16 @@ const cli = meow(
 	Usage
 		$ blueprint-build <config-file> <dist-dir>
 
+	Options
+		--server          Server to upload to
+		--development     Development mode
+		--watch, -w       Watch for changes and rebuild
+		--bundle          Bundle to build, or "all" for all bundles (default: "all")
+
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
+		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development
+		$ blueprint-build ./blueprint-map.mjs ./dist --bundle=core
 `,
 	{
 		importMeta: import.meta,
@@ -24,25 +31,22 @@ const cli = meow(
 			server: {
 				type: 'string',
 				default: '',
-				// alias: 's',
 				description: 'Server to upload to',
 			},
 			development: {
 				type: 'boolean',
 				default: false,
-				// alias: 'd',
 				description: 'Development mode',
 			},
 			watch: {
 				type: 'boolean',
 				default: false,
-				// alias: 'w',
+				alias: 'w',
 				description: 'Watch for changes and rebuild',
 			},
 			bundle: {
 				type: 'string',
 				default: 'all',
-				// alias: 'b',
 				description: 'Bundle to build, or "all" for all bundles',
 			},
 		},

@@ -13,8 +13,12 @@ const cli = meow(
 	Usage
 		$ blueprint-bundle <config-file> <dist-dir>
 
+	Options
+		--bundle           Bundle name to process, or "all" for all bundles (default: "all")
+
 	Examples
 		$ blueprint-bundle ./blueprint-map.mjs ./dist/
+		$ blueprint-bundle ./blueprint-map.mjs ./dist/ -b core
 `,
 	{
 		importMeta: import.meta,
@@ -22,7 +26,6 @@ const cli = meow(
 			bundle: {
 				type: 'string',
 				default: 'all',
-				// alias: 'b',
 				description: 'Bundle name to process, or "all" for all bundles',
 			},
 		},

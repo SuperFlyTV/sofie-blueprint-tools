@@ -15,8 +15,10 @@ import path from 'path'
 const cli = meow(
 	`
 	Tool to generate typescript types from blueprint config schemas
+
 	Usage
 		$ blueprint-schema-types <search-path> <output-path>
+    
 	Examples
 		$ blueprint-schema-types ./src/$schemas/generated ./src/generated/types
 `,

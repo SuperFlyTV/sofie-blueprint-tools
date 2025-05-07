@@ -1,12 +1,13 @@
 {
 	"name": "sofie-blueprint-tools",
 	"main": "lib/main.js",
+	"license": "MIT",
+	"version": "0.1.0",
 	"packageManager": "yarn@4.9.1",
 	"bin": {
 		"blueprint-build": "bin/build.mjs",
 		"blueprint-bundle": "bin/bundle.mjs",
 		"blueprint-extract-translations": "bin/extract-translations.mjs",
-		"blueprint-schema-deref": "bin/schema-deref.mjs",
 		"blueprint-schema-types": "bin/schema-types.mjs"
 	},
 	"engines": {
