@@ -1,0 +1,24 @@
+{
+	"name": "sofie-blueprint-tools",
+	"main": "lib/main.js",
+	"packageManager": "yarn@4.9.1",
+	"bin": {
+		"blueprint-extract-translations": "bin/extract-translations.mjs",
+		"blueprint-schema-deref": "bin/schema-deref.mjs",
+		"blueprint-schema-types": "bin/schema-types.mjs"
+	},
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"dependencies": {
+		"i18next-conv": "^15.1.1",
+		"i18next-parser": "^9.3.0",
+		"json-schema-to-typescript": "^15.0.4",
+		"meow": "^13.2.0",
+		"vinyl-fs": "^3.0.3"
+	},
+	"devDependencies": {
+		"@sofie-automation/code-standard-preset": "^3.0.0"
+	},
+	"prettier": "@sofie-automation/code-standard-preset/.prettierrc.json"
+}
