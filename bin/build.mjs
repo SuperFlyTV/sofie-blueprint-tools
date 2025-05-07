@@ -13,10 +13,10 @@ const cli = meow(
 	Tool to build blueprints into a Sofie compatible bundle
 
 	Usage
-		$ blueprint-build <config-file>
+		$ blueprint-build <config-file> <dist-dir>
 
 	Examples
-		$ blueprint-build ./blueprint-map.mjs
+		$ blueprint-build ./blueprint-map.mjs ./dist
 `,
 	{
 		importMeta: import.meta,
@@ -50,16 +50,17 @@ const cli = meow(
 )
 
 const mapFilePath = cli.input[0]
+const distDirPath = cli.input[1]
 const watch = cli.flags.watch
 const development = cli.flags.development
 
-if (!mapFilePath) {
+if (!mapFilePath || !distDirPath) {
 	cli.showHelp()
 	process.exit(1)
 }
 
-const absolutePath = path.resolve(process.cwd(), mapFilePath)
-const mapFile = await import(absolutePath)
+const distDir = path.resolve(process.cwd(), distDirPath)
+const mapFile = await import(path.resolve(process.cwd(), mapFilePath))
 
 // Determine the blueprints that are being built
 let sources = mapFile.BlueprintEntrypoints
@@ -79,7 +80,7 @@ if (cli.flags.bundle !== 'all') {
 	}
 }
 
-const rollupConfig = await RollupConfigFactory(sources, cli.flags.server, development)
+const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
 if (watch) {
