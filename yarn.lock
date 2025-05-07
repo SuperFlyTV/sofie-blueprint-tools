@@ -4022,6 +4022,7 @@ __metadata:
     "@sofie-automation/blueprints-integration": "*"
   bin:
     blueprint-build: bin/build.mjs
+    blueprint-bundle: bin/bundle.mjs
     blueprint-extract-translations: bin/extract-translations.mjs
     blueprint-schema-deref: bin/schema-deref.mjs
     blueprint-schema-types: bin/schema-types.mjs
