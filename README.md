@@ -6,6 +6,24 @@ You can see a reference bluerpint implementation which utilises this tooling at 
 
 ## Available scripts
 
+All of these scripts need to know the names and paths of the blueprints in your project. This is done with the `blueprint-map.mjs` file provided to each command.
+
+A simple example of this file is:
+
+```js
+// This is each blueprint that you have
+export const BlueprintEntrypoints = {
+	demoshowstyle: './src/main/showstyle/index.ts',
+	demostudio: './src/main/studio/index.ts',
+	system: './src/system/index.ts',
+}
+
+// You can optionally define bundles, so that you can easily produce a smaller bundle containing a subset of the blueprints in the project
+export const BlueprintBundles = {
+	show: ['demoshowstyle', 'demostudio', 'system'],
+}
+```
+
 ### blueprint-build
 
 This is the core build script. It will consume your typescript source code, and prepare a self contained js file for each blueprint. Optionally, it can auto-upload the built code to your sofie installation (very useful for development)
