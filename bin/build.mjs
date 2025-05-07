@@ -39,6 +39,12 @@ const cli = meow(
 				// alias: 'w',
 				description: 'Watch for changes and rebuild',
 			},
+			bundle: {
+				type: 'string',
+				default: 'all',
+				// alias: 'b',
+				description: 'Bundle to build, or "all" for all bundles',
+			},
 		},
 	}
 )
@@ -57,10 +63,10 @@ const mapFile = await import(absolutePath)
 
 // Determine the blueprints that are being built
 let sources = mapFile.BlueprintEntrypoints
-if (process.env.bundle && process.env.bundle !== 'all') {
-	const bundle = mapFile.BlueprintBundles[process.env.bundle]
-	if (bundle) {
-		throw new Error(`Bundle ${process.env.bundle} not found`)
+if (cli.flags.bundle !== 'all') {
+	const bundle = mapFile.BlueprintBundles[cli.flags.bundle]
+	if (!bundle) {
+		throw new Error(`Bundle ${cli.flags.bundle} not found`)
 	}
 
 	sources = {}
@@ -73,17 +79,6 @@ if (process.env.bundle && process.env.bundle !== 'all') {
 	}
 }
 
-// const __dirname = fileURLToPath(new URL('.', import.meta.url))
-// const rollupConfigPath = path.join(__dirname, '../lib/rollup/rollup.config.mjs')
-
-// await concurrently([
-// 	{
-// 		name: 'build',
-// 		command: ['rollup', '-c', `"${rollupConfigPath}"`, '--config-server=http://localhost:3000'].join(' '),
-// 		cwd: process.cwd(),
-// 	},
-// ]).result
-
 const rollupConfig = await RollupConfigFactory(sources, cli.flags.server, development)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
@@ -91,5 +86,5 @@ if (watch) {
 	// Start the watcher, this will keep running in the background
 	rollupWatch(rollupConfig)
 } else {
-	await Promise.all(rollupConfig.map(rollup))
+	await Promise.all(rollupConfig.map((conf) => rollup(conf).then((bundle) => bundle.write(conf.output))))
 }
