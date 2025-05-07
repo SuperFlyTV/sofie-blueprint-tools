@@ -3,6 +3,7 @@
 	"main": "lib/main.js",
 	"packageManager": "yarn@4.9.1",
 	"bin": {
+		"blueprint-build": "bin/build.mjs",
 		"blueprint-extract-translations": "bin/extract-translations.mjs",
 		"blueprint-schema-deref": "bin/schema-deref.mjs",
 		"blueprint-schema-types": "bin/schema-types.mjs"
@@ -11,10 +12,20 @@
 		"node": ">=20.0.0"
 	},
 	"dependencies": {
+		"@rollup/plugin-commonjs": "^28.0.3",
+		"@rollup/plugin-json": "^6.1.0",
+		"@rollup/plugin-node-resolve": "^16.0.1",
+		"@rollup/plugin-replace": "^6.0.2",
+		"@rollup/plugin-typescript": "^12.1.2",
+		"axios": "^1.9.0",
+		"concurrently": "^9.1.2",
+		"git-revision-webpack-plugin": "^5.0.0",
 		"i18next-conv": "^15.1.1",
 		"i18next-parser": "^9.3.0",
 		"json-schema-to-typescript": "^15.0.4",
 		"meow": "^13.2.0",
+		"moment": "^2.30.1",
+		"rollup": "^4.40.2",
 		"vinyl-fs": "^3.0.3"
 	},
 	"devDependencies": {
