@@ -41,7 +41,7 @@ const cli = meow(
 			watch: {
 				type: 'boolean',
 				default: false,
-				alias: 'w',
+				shortFlag: 'w',
 				description: 'Watch for changes and rebuild',
 			},
 			bundle: {
