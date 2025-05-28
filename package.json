@@ -3,6 +3,10 @@
 	"main": "lib/main.js",
 	"license": "MIT",
 	"version": "0.1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SuperFlyTV/sofie-blueprint-tools.git"
+	},
 	"packageManager": "yarn@4.9.1",
 	"bin": {
 		"blueprint-build": "bin/build.mjs",
