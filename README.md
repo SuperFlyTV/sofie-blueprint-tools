@@ -1,8 +1,12 @@
 # Sofie: The Modern TV News Studio Automation System
 
+When making blueprints for Sofie, they need to be packaged and uploaded in a certain way.  
+This includes steps such as transforming the json-schema used for the configuration, and extracting strings to be translated.
+
 This library is a collection of tooling needed by all blueprints to prepare them into the format that Sofie expects.
 
-You can see a reference bluerpint implementation which utilises this tooling at https://github.com/SuperFlyTV/sofie-demo-blueprints
+You can see a reference blueprint implementation which utilises this tooling at https://github.com/SuperFlyTV/sofie-demo-blueprints  
+If wanting to make your own blueprints, we recommend starting from that repository instead of building from scratch.
 
 ## Available scripts
 
