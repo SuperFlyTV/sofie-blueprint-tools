@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.0.1...v1.0.2) (2025-08-14)
+
+
+### Bug Fixes
+
+* Add "file://" scheme on windows ([#3](https://github.com/SuperFlyTV/sofie-blueprint-tools/issues/3)) ([d3feb7c](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/d3feb7c60e0b9456adab15a9cf3a432f3223a39c))
+
 ## [1.0.1](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.0.0...v1.0.1) (2025-05-28)
 
 
