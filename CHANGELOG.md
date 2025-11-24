@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.0.2...v1.1.0) (2025-11-24)
+
+
+### Features
+
+* Remove dependency on axios ([c7d47be](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/c7d47be0e6536ad058bf8fe25ffb62fdb4595a61))
+* update libraries to latest versions. ([c28bc14](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/c28bc14471ebe8fee22a1305d1023255c14d8e49))
+
 ## [1.0.2](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.0.1...v1.0.2) (2025-08-14)
 
 
