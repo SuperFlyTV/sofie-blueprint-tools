@@ -25,6 +25,7 @@
 		"@rollup/plugin-typescript": "^12.3.0",
 		"i18next-conv": "^16.0.0",
 		"i18next-parser": "^9.3.0",
+		"json-schema-ref-parser": "^9.0.9",
 		"json-schema-to-typescript": "^15.0.4",
 		"meow": "^14.0.0",
 		"rollup": "^4.53.3",
