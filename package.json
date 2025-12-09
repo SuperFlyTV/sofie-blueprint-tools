@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "git+https://github.com/SuperFlyTV/sofie-blueprint-tools.git"
 	},
-	"packageManager": "yarn@4.9.1",
+	"packageManager": "yarn@4.12.0",
 	"bin": {
 		"blueprint-build": "bin/build.mjs",
 		"blueprint-bundle": "bin/bundle.mjs",
