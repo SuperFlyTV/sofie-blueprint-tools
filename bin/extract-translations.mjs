@@ -27,8 +27,9 @@ if (!mapFilePath) {
 	process.exit(1)
 }
 
-const absolutePath = path.resolve(process.cwd(), mapFilePath)
-const mapFile = await import(absolutePath)
+let mapFilePathAbs = path.resolve(process.cwd(), mapFilePath)
+if (process.platform === 'win32') mapFilePathAbs = 'file://' + mapFilePathAbs // On Windows, absolute paths must be valid file:// URLs
+const mapFile = await import(mapFilePathAbs)
 if (!mapFile) {
 	console.error(`Failed to load map file: ${absolutePath}`)
 	process.exit(1)

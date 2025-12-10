@@ -41,7 +41,9 @@ if (!mapFilePath || !distDirPath) {
 }
 
 const distDir = path.resolve(process.cwd(), distDirPath)
-const mapFile = await import(path.resolve(process.cwd(), mapFilePath))
+let mapFilePathAbs = path.resolve(process.cwd(), mapFilePath)
+if (process.platform === 'win32') mapFilePathAbs = 'file://' + mapFilePathAbs // On Windows, absolute paths must be valid file:// URLs
+const mapFile = await import(mapFilePathAbs)
 
 // Determine the blueprints that are being built
 let sources = mapFile.BlueprintEntrypoints
