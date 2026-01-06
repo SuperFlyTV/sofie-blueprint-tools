@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.2.0...v1.2.1) (2026-01-06)
+
+
+### Bug Fixes
+
+* expose `blueprint-schema-deref` bin ([5666090](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/5666090de749ac22da29d172f35142fe1643e826))
+
 ## [1.2.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.1.0...v1.2.0) (2026-01-06)
 
 
