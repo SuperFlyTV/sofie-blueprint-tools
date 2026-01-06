@@ -82,6 +82,20 @@ Sofie expects your available blueprint configuration fields to be defined with J
 		$ blueprint-schema-types ./src/$schemas/generated ./src/generated/types
 ```
 
+### blueprint-schema-deref
+
+Sofie requires your blueprint configuration fields schema to be a flat schema with no $refs. This tool will flatten any $refs in the schema.
+
+```
+	Tool to resolve references in JSON Schemas
+
+	Usage
+		$ blueprint-schema-deref <input-file-1> <input-file-N> <output-path>
+
+	Examples
+		$ blueprint-schema-deref ./src/$schemas/showStyle.json ./src/$schemas/studio.json ./src/generated/$schemas
+```
+
 ### blueprint-extract-translations
 
 If you need to provide translations for various text from your blueprints into multiple languages, you can utilise this to generate `po` files for the strings that need translating.
