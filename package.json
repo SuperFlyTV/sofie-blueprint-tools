@@ -2,7 +2,7 @@
 	"name": "sofie-blueprint-tools",
 	"main": "lib/main.js",
 	"license": "MIT",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SuperFlyTV/sofie-blueprint-tools.git"
