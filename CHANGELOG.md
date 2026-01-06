@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.1.0...v1.2.0) (2026-01-06)
+
+
+### Features
+
+* add blueprint-schema-deref tool ([#11](https://github.com/SuperFlyTV/sofie-blueprint-tools/issues/11)) ([9149df1](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/9149df1ec65b86d79bee1bfffa747c3587b4e8a6))
+* Support injecting environment vars ([8eadbd5](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/8eadbd5bd6239bbfa7d270247394e8ea9337b71d))
+
+
+### Bug Fixes
+
+* Add "file://" scheme on windows ([#13](https://github.com/SuperFlyTV/sofie-blueprint-tools/issues/13)) ([c59245f](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/c59245f6d5e2e043d19bef4c8dcfd527e27df865))
+* allow gif assets ([6b46b0d](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/6b46b0d5bb9f58bd98a3e2d728101ba47bf9521c))
+* assets json not being generated ([e2bda71](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/e2bda71ce5d50ed46fd4fb2516af6cbfe5861c00))
+* assets json not being generated ([c883b36](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/c883b3619797397ab8db55df3e3c477579439477))
+* assets not being loadable through tsconfig aliases ([9518b9a](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/9518b9a3ccdcddc973b9c2392d97c01639c6808f))
+
 ## [1.1.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.0.2...v1.1.0) (2025-11-24)
 
 
