@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "git+https://github.com/SuperFlyTV/sofie-blueprint-tools.git"
 	},
-	"packageManager": "yarn@4.9.1",
+	"packageManager": "yarn@4.12.0",
 	"bin": {
 		"blueprint-build": "bin/build.mjs",
 		"blueprint-bundle": "bin/bundle.mjs",
@@ -19,11 +19,13 @@
 	},
 	"dependencies": {
 		"@apidevtools/json-schema-ref-parser": "^15.1.3",
+		"@rollup/plugin-alias": "^6.0.0",
 		"@rollup/plugin-commonjs": "^29.0.0",
 		"@rollup/plugin-json": "^6.1.0",
 		"@rollup/plugin-node-resolve": "^16.0.3",
 		"@rollup/plugin-replace": "^6.0.3",
 		"@rollup/plugin-typescript": "^12.3.0",
+		"dotenv": "^17.2.3",
 		"i18next-conv": "^16.0.0",
 		"i18next-parser": "^9.3.0",
 		"json-schema-to-typescript": "^15.0.4",
