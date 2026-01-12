@@ -16,7 +16,7 @@ const cli = meow(
 
 	Options
 		--server          Server to upload to
-		--development     Development mode
+		--development     Development mode. Uses a dev version number and instructs sofie to auto-apply config changes
 		--watch, -w       Watch for changes and rebuild
 		--bundle          Bundle to build, or "all" for all bundles (default: "all")
 
