@@ -19,10 +19,11 @@ const cli = meow(
 		--development     Development mode. Uses a dev version number and instructs sofie to auto-apply config changes
 		--watch, -w       Watch for changes and rebuild
 		--bundle          Bundle to build, or "all" for all bundles (default: "all")
+		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=dnt:configure --header=api-key:mySecretKey)
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
-		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development
+		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=dnt:configure
 		$ blueprint-build ./blueprint-map.mjs ./dist --bundle=core
 `,
 	{
@@ -49,6 +50,11 @@ const cli = meow(
 				default: 'all',
 				description: 'Bundle to build, or "all" for all bundles',
 			},
+			headers: {
+				type: 'string',
+				isMultiple: true,
+				default: [],
+			}
 		},
 	}
 )
@@ -86,7 +92,7 @@ if (cli.flags.bundle !== 'all') {
 	}
 }
 
-const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development)
+const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
 if (watch) {
