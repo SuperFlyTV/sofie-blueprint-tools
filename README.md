@@ -1,11 +1,11 @@
 # Sofie: The Modern TV News Studio Automation System
 
-When making blueprints for Sofie, they need to be packaged and uploaded in a certain way.  
+When making blueprints for Sofie, they need to be packaged and uploaded in a certain way.
 This includes steps such as transforming the json-schema used for the configuration, and extracting strings to be translated.
 
 This library is a collection of tooling needed by all blueprints to prepare them into the format that Sofie expects.
 
-You can see a reference blueprint implementation which utilises this tooling at https://github.com/SuperFlyTV/sofie-demo-blueprints  
+You can see a reference blueprint implementation which utilises this tooling at https://github.com/SuperFlyTV/sofie-demo-blueprints
 If wanting to make your own blueprints, we recommend starting from that repository instead of building from scratch.
 
 ## Available scripts
@@ -43,10 +43,11 @@ This is the core build script. It will consume your typescript source code, and 
 		--development  Development mode. Uses a dev version number and instructs sofie to auto-apply config changes
 		--watch, -w    Watch for changes and rebuild
 		--bundle       Bundle to build, or "all" for all bundles (default: "all")
+		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=clientId:myClient --header=api-key:mySecretKey)
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
-		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development
+		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=api-key:header
 		$ blueprint-build ./blueprint-map.mjs ./dist --bundle=core
 ```
 
