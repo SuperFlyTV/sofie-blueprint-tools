@@ -23,7 +23,7 @@ const cli = meow(
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
-		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=api-key:header
+		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=api-key:mySecretKey
 		$ blueprint-build ./blueprint-map.mjs ./dist --bundle=core
 `,
 	{
