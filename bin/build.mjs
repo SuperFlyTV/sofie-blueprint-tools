@@ -19,11 +19,11 @@ const cli = meow(
 		--development     Development mode. Uses a dev version number and instructs sofie to auto-apply config changes
 		--watch, -w       Watch for changes and rebuild
 		--bundle          Bundle to build, or "all" for all bundles (default: "all")
-		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=dnt:configure --header=api-key:mySecretKey)
+		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=clientId:myClient --header=api-key:mySecretKey)
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
-		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=dnt:configure
+		$ blueprint-build ./blueprint-map.mjs ./dist --watch --development --header=api-key:header
 		$ blueprint-build ./blueprint-map.mjs ./dist --bundle=core
 `,
 	{
