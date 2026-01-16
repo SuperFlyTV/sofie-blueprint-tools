@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.2.1...v1.3.0) (2026-01-16)
+
+
+### Features
+
+* Upload headers ([#18](https://github.com/SuperFlyTV/sofie-blueprint-tools/issues/18)) ([181e26f](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/181e26f8b3b811b52efee385b9d5e6a1f0611a05))
+
 ## [1.2.1](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.2.0...v1.2.1) (2026-01-06)
 
 
