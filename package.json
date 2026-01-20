@@ -38,6 +38,7 @@
 		"@sofie-automation/blueprints-integration": "*"
 	},
 	"devDependencies": {
+		"@sofie-automation/blueprints-integration": "*",
 		"@sofie-automation/code-standard-preset": "^3.2.0"
 	},
 	"prettier": "@sofie-automation/code-standard-preset/.prettierrc.json"
