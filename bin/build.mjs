@@ -74,6 +74,9 @@ let mapFilePathAbs = path.resolve(process.cwd(), mapFilePath)
 if (process.platform === 'win32') mapFilePathAbs = 'file://' + mapFilePathAbs // On Windows, absolute paths must be valid file:// URLs
 const mapFile = await import(mapFilePathAbs)
 
+// Get custom replacements from the map file (optional)
+const customReplacements = mapFile.BlueprintReplacements || {}
+
 // Determine the blueprints that are being built
 let sources = mapFile.BlueprintEntrypoints
 if (cli.flags.bundle !== 'all') {
@@ -92,7 +95,7 @@ if (cli.flags.bundle !== 'all') {
 	}
 }
 
-const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers)
+const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers, customReplacements)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
 if (watch) {
