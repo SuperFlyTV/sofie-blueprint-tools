@@ -12,8 +12,8 @@
 		"blueprint-build": "bin/build.mjs",
 		"blueprint-bundle": "bin/bundle.mjs",
 		"blueprint-extract-translations": "bin/extract-translations.mjs",
-		"blueprint-schema-types": "bin/schema-types.mjs",
-		"blueprint-schema-deref": "bin/dereference-schema.mjs"
+		"blueprint-schema-deref": "bin/dereference-schema.mjs",
+		"blueprint-schema-types": "bin/schema-types.mjs"
 	},
 	"engines": {
 		"node": ">=20.0.0"
@@ -38,6 +38,7 @@
 		"@sofie-automation/blueprints-integration": "*"
 	},
 	"devDependencies": {
+		"@sofie-automation/blueprints-integration": "*",
 		"@sofie-automation/code-standard-preset": "^3.2.0"
 	},
 	"prettier": "@sofie-automation/code-standard-preset/.prettierrc.json"
