@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.3.0...v1.4.0) (2026-01-30)
+
+
+### Features
+
+* Support custom string replacements in blueprint builds ([5371806](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/5371806aa1f868c31e9a8755fc17b5059b21702b))
+* Support custom string replacements in blueprint builds ([66a191f](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/66a191f13206928ab883af199553891e432725ec))
+
 ## [1.3.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.2.1...v1.3.0) (2026-01-16)
 
 
