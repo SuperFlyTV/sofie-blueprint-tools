@@ -3343,6 +3343,7 @@ __metadata:
     blueprint-build: bin/build.mjs
     blueprint-bundle: bin/bundle.mjs
     blueprint-extract-translations: bin/extract-translations.mjs
+    blueprint-schema-deref: bin/dereference-schema.mjs
     blueprint-schema-types: bin/schema-types.mjs
   languageName: unknown
   linkType: soft
