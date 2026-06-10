@@ -105,10 +105,10 @@ If you need to provide translations for various text from your blueprints into m
 	Tool to extract translations from the TypeScript sourcecode, and associated json schemas
 
 	Usage
-		$ blueprint-extract-versions <config-file>
+		$ blueprint-extract-translations <config-file>
 
 	Examples
-		$ blueprint-extract-versions ./blueprint-map.mjs
+		$ blueprint-extract-translations ./blueprint-map.mjs
 ```
 
 ## Contributing
