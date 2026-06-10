@@ -46,20 +46,10 @@ const refParser = new RefParser()
 for (const filename of inputFiles) {
 	try {
 		const derefedSchema = await refParser.dereference(filename, {
-			parse: {
-				json: true,
-				yaml: true,
-				text: true,
-			},
 			dereference: {
 				circular: false,
 			},
 			continueOnError: true,
-			resolve: {
-				external: false,
-				file: true,
-				http: true,
-			},
 		})
 
 		await fs.writeFile(
