@@ -40,4 +40,4 @@ if (!mapFile.BlueprintEntrypoints) {
 	process.exit(1)
 }
 
-await extractTranslations(mapFile.BlueprintEntrypoints)
+await extractTranslations(mapFile)
