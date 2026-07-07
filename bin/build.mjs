@@ -6,6 +6,7 @@ import meow from 'meow'
 import path from 'path'
 import { rollup, watch as rollupWatch } from 'rollup'
 import { RollupConfigFactory } from '../lib/rollup/configFactory.mjs'
+import { extractTranslations } from '../lib/translation/extract.mjs'
 
 const cli = meow(
 	`
@@ -20,6 +21,7 @@ const cli = meow(
 		--watch, -w       Watch for changes and rebuild
 		--bundle          Bundle to build, or "all" for all bundles (default: "all")
 		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=clientId:myClient --header=api-key:mySecretKey)
+		--skip-extract    Skip translation extraction before build
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
@@ -54,7 +56,12 @@ const cli = meow(
 				type: 'string',
 				isMultiple: true,
 				default: [],
-			}
+			},
+			skipExtract: {
+				type: 'boolean',
+				default: false,
+				description: 'Skip translation extraction before build',
+			},
 		},
 	}
 )
@@ -93,6 +100,11 @@ if (cli.flags.bundle !== 'all') {
 			throw new Error(`Entrypoint ${name} not found`)
 		}
 	}
+}
+
+if (!cli.flags.skipExtract && mapFile.BlueprintEntrypoints) {
+	console.info('Extracting translations from entrypoint module graphs...')
+	await extractTranslations(mapFile)
 }
 
 const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers, customReplacements)

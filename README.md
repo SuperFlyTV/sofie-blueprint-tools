@@ -44,6 +44,7 @@ This is the core build script. It will consume your typescript source code, and 
 		--watch, -w    Watch for changes and rebuild
 		--bundle       Bundle to build, or "all" for all bundles (default: "all")
 		--header       Additional headers to add to the upload, can be set multiple times (E.G. --header=clientId:myClient --header=api-key:mySecretKey)
+		--skip-extract Skip translation extraction before build
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
@@ -100,6 +101,14 @@ Sofie requires your blueprint configuration fields schema to be a flat schema wi
 ### blueprint-extract-translations
 
 If you need to provide translations for various text from your blueprints into multiple languages, you can utilise this to generate `po` files for the strings that need translating.
+
+By default, extraction follows the TypeScript import graph from each `BlueprintEntrypoints` file, so each blueprint bundle only gets keys from source files it can statically reach. Optional `blueprint-map.mjs` exports:
+
+- **`BlueprintTranslationLocales`** — override the default locale list (`en`, `nb`, `nn`, `sv`)
+- **`BlueprintTranslationSources`** — per-entrypoint glob overrides (when manual paths are needed)
+- **`BlueprintTranslationTsconfig`** — tsconfig path for import resolution (defaults to `tsconfig.build.json` or `tsconfig.json`)
+
+`blueprint-build` runs extraction automatically before bundling (use `--skip-extract` to disable).
 
 ```
 	Tool to extract translations from the TypeScript sourcecode, and associated json schemas
