@@ -102,17 +102,38 @@ if (cli.flags.bundle !== 'all') {
 	}
 }
 
-if (!cli.flags.skipExtract && mapFile.BlueprintEntrypoints) {
-	console.info('Extracting translations from entrypoint module graphs...')
-	await extractTranslations(mapFile)
+// Shared across bundle configs so concurrent buildStarts extract once per rebuild.
+let extractPromise = null
+function translationExtractPlugin() {
+	return {
+		name: 'sofie-extract-translations',
+		async buildStart() {
+			if (cli.flags.skipExtract || !mapFile.BlueprintEntrypoints) return
+			if (!extractPromise) {
+				console.info('Extracting translations from entrypoint module graphs...')
+				extractPromise = extractTranslations(mapFile)
+			}
+			await extractPromise
+		},
+	}
 }
 
 const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers, customReplacements)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
+for (const conf of rollupConfig) {
+	conf.plugins = [translationExtractPlugin(), ...(conf.plugins || [])]
+}
+
 if (watch) {
 	// Start the watcher, this will keep running in the background
-	rollupWatch(rollupConfig)
+	const watcher = rollupWatch(rollupConfig)
+	watcher.on('event', (event) => {
+		// Reset so the next rebuild's buildStart re-runs extraction before getTranslations.
+		if (event.code === 'START') {
+			extractPromise = null
+		}
+	})
 } else {
 	await Promise.all(rollupConfig.map((conf) => rollup(conf).then((bundle) => bundle.write(conf.output))))
 }
