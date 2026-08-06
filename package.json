@@ -35,7 +35,8 @@
 		"vinyl-fs": "^4.0.2"
 	},
 	"peerDependencies": {
-		"@sofie-automation/blueprints-integration": "*"
+		"@sofie-automation/blueprints-integration": "*",
+		"prettier": "*"
 	},
 	"devDependencies": {
 		"@sofie-automation/blueprints-integration": "*",

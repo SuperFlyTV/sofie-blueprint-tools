@@ -2,7 +2,7 @@
 import { compileFromFile } from 'json-schema-to-typescript'
 import * as fs from 'fs/promises'
 import meow from 'meow'
-import { createRequire } from 'module'
+import prettier from 'prettier'
 import path from 'path'
 
 /** ********************************************************
@@ -18,7 +18,7 @@ const cli = meow(
 
 	Usage
 		$ blueprint-schema-types <search-path> <output-path>
-    
+
 	Examples
 		$ blueprint-schema-types ./src/$schemas/generated ./src/generated/types
 `,
@@ -40,9 +40,7 @@ const BANNER =
 
 let PrettierConf = undefined
 try {
-	const require = createRequire(import.meta.url)
-	const confPath = require.resolve('@sofie-automation/code-standard-preset/.prettierrc.json')
-	PrettierConf = JSON.parse(await fs.readFile(confPath, 'utf8'))
+	PrettierConf = (await prettier.resolveConfig('@sofie-automation/code-standard-preset')) ?? undefined
 } catch (e) {
 	console.log(e)
 	console.warn(`Failed to resolve prettier config path, skipping prettier formatting`)

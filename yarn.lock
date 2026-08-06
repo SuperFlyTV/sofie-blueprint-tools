@@ -3269,6 +3269,7 @@ __metadata:
     vinyl-fs: "npm:^4.0.2"
   peerDependencies:
     "@sofie-automation/blueprints-integration": "*"
+    prettier: "*"
   bin:
     blueprint-build: bin/build.mjs
     blueprint-bundle: bin/bundle.mjs
