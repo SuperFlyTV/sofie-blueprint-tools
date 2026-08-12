@@ -32,16 +32,17 @@
 		"json-schema-to-typescript": "^15.0.4",
 		"meow": "^14.1.0",
 		"rollup": "^4.61.0",
-		"typescript": "^5.0.4",
 		"vinyl-fs": "^4.0.2"
 	},
 	"peerDependencies": {
 		"@sofie-automation/blueprints-integration": "*",
-		"prettier": "*"
+		"prettier": "*",
+		"typescript": ">=5.0.0"
 	},
 	"devDependencies": {
 		"@sofie-automation/blueprints-integration": "*",
-		"@sofie-automation/code-standard-preset": "^3.2.2"
+		"@sofie-automation/code-standard-preset": "^3.2.2",
+		"typescript": "^5.0.4"
 	},
 	"prettier": "@sofie-automation/code-standard-preset/.prettierrc.json"
 }

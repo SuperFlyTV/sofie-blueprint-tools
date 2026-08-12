@@ -3271,6 +3271,7 @@ __metadata:
   peerDependencies:
     "@sofie-automation/blueprints-integration": "*"
     prettier: "*"
+    typescript: ">=5.0.0"
   bin:
     blueprint-build: bin/build.mjs
     blueprint-bundle: bin/bundle.mjs
