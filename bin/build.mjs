@@ -107,13 +107,17 @@ let extractPromise = null
 function translationExtractPlugin() {
 	return {
 		name: 'sofie-extract-translations',
-		async buildStart() {
-			if (cli.flags.skipExtract || !mapFile.BlueprintEntrypoints) return
-			if (!extractPromise) {
-				console.info('Extracting translations from entrypoint module graphs...')
-				extractPromise = extractTranslations(mapFile)
-			}
-			await extractPromise
+		buildStart: {
+			order: 'pre',
+			sequential: true,
+			async handler() {
+				if (cli.flags.skipExtract || !mapFile.BlueprintEntrypoints) return
+				if (!extractPromise) {
+					console.info('Extracting translations from entrypoint module graphs...')
+					extractPromise = extractTranslations(mapFile)
+				}
+				await extractPromise
+			},
 		},
 	}
 }
