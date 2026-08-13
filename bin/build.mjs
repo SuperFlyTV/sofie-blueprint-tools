@@ -6,6 +6,7 @@ import meow from 'meow'
 import path from 'path'
 import { rollup, watch as rollupWatch } from 'rollup'
 import { RollupConfigFactory } from '../lib/rollup/configFactory.mjs'
+import { extractTranslations } from '../lib/translation/extract.mjs'
 
 const cli = meow(
 	`
@@ -20,6 +21,7 @@ const cli = meow(
 		--watch, -w       Watch for changes and rebuild
 		--bundle          Bundle to build, or "all" for all bundles (default: "all")
 		--header          Additional headers to add to the upload, can be set multiple times (E.G. --header=clientId:myClient --header=api-key:mySecretKey)
+		--skip-extract    Skip translation extraction before build
 
 	Examples
 		$ blueprint-build ./blueprint-map.mjs ./dist
@@ -54,7 +56,12 @@ const cli = meow(
 				type: 'string',
 				isMultiple: true,
 				default: [],
-			}
+			},
+			skipExtract: {
+				type: 'boolean',
+				default: false,
+				description: 'Skip translation extraction before build',
+			},
 		},
 	}
 )
@@ -95,12 +102,42 @@ if (cli.flags.bundle !== 'all') {
 	}
 }
 
+// Shared across bundle configs so concurrent buildStarts extract once per rebuild.
+let extractPromise = null
+function translationExtractPlugin() {
+	return {
+		name: 'sofie-extract-translations',
+		buildStart: {
+			order: 'pre',
+			sequential: true,
+			async handler() {
+				if (cli.flags.skipExtract || !mapFile.BlueprintEntrypoints) return
+				if (!extractPromise) {
+					console.info('Extracting translations from entrypoint module graphs...')
+					extractPromise = extractTranslations(mapFile)
+				}
+				await extractPromise
+			},
+		},
+	}
+}
+
 const rollupConfig = await RollupConfigFactory(sources, distDir, cli.flags.server, development, cli.flags.headers, customReplacements)
 console.log(`Found ${rollupConfig.length} sources to build`)
 
+for (const conf of rollupConfig) {
+	conf.plugins = [translationExtractPlugin(), ...(conf.plugins || [])]
+}
+
 if (watch) {
 	// Start the watcher, this will keep running in the background
-	rollupWatch(rollupConfig)
+	const watcher = rollupWatch(rollupConfig)
+	watcher.on('event', (event) => {
+		// Reset so the next rebuild's buildStart re-runs extraction before getTranslations.
+		if (event.code === 'START') {
+			extractPromise = null
+		}
+	})
 } else {
 	await Promise.all(rollupConfig.map((conf) => rollup(conf).then((bundle) => bundle.write(conf.output))))
 }

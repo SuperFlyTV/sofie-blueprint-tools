@@ -36,11 +36,13 @@
 	},
 	"peerDependencies": {
 		"@sofie-automation/blueprints-integration": "*",
-		"prettier": "*"
+		"prettier": "*",
+		"typescript": ">=5.0.0"
 	},
 	"devDependencies": {
 		"@sofie-automation/blueprints-integration": "*",
-		"@sofie-automation/code-standard-preset": "^3.2.2"
+		"@sofie-automation/code-standard-preset": "^3.2.2",
+		"typescript": "^5.0.4"
 	},
 	"prettier": "@sofie-automation/code-standard-preset/.prettierrc.json"
 }
