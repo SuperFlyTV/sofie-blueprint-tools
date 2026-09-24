@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.5.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.4.0...v1.5.0) (2026-08-13)
+
+
+### Features
+
+* **translation:** extract keys from entrypoint import graphs ([3d5d8bc](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/3d5d8bcefe9fac36c01681a83bed8af979f587e2))
+* **translation:** resolve keys from entrypoint import graphs ([c738a64](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/c738a64a0316db610b702fb93cc3f7960a048bf9))
+* **translation:** support blueprint-map extract configuration ([56bcb66](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/56bcb661f0c79d82af1ff93692d2df92c79d38aa))
+
+
+### Bug Fixes
+
+* blueprint-schema-deref always failing ([31b46f4](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/31b46f40e77f3167d9b0f4dea5bb168943f23785))
+* **translation:** omit po dates and skip unchanged file writes ([bd060cb](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/bd060cbd2c43d1d12f379dfa350e0ee4e59f743f))
+* **translation:** re-extract catalogs on watch rebuilds ([53b83c9](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/53b83c9ab321a41002cae8d61dbf4601bfda92a7))
+* **translation:** serialize extraction before catalog loading ([f7fe918](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/f7fe918d52b09ee398b3e0ae00a25ccc77f060d3))
+* typo in blueprint-extract-translations tool ([9381977](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/9381977bb5593d6be10fdefd050a99e2e8f796b9))
+* use prettier.resolveConfig to look up config file ([15099fc](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/15099fc8f792834c5ea3afd773a0e36a4dab6144))
+* use prettier.resolveConfig to look up config file ([a057067](https://github.com/SuperFlyTV/sofie-blueprint-tools/commit/a0570676335934495bfe5a91b14cd3d6564fb058))
+
 ## [1.4.0](https://github.com/SuperFlyTV/sofie-blueprint-tools/compare/v1.3.0...v1.4.0) (2026-06-01)
 
 
